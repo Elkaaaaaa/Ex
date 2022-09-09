@@ -1,10 +1,12 @@
 ﻿//Методы 
 void PrintArray(string[] array)
 {
+    Console.Write("{");
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]}  ");
+        Console.Write($"{array[i]}, ");
     }
+    Console.Write("\b\b}");
     Console.WriteLine();
 }
 
@@ -22,5 +24,6 @@ for (int i = 0; i < firstArray.Length; i++)
         k++;
     }
 }
+Array.Resize(ref lastArray, firstArray.Length - k + 1);
 Console.WriteLine("Полученный массив:");
 PrintArray(lastArray);
