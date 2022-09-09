@@ -11,12 +11,20 @@ void PrintArray(string[] array)
 }
 
 //Задача
-string[] firstArray = { "ada", "asdas", "as", "asdas", "asd" };
-string[] lastArray = new string[firstArray.Length];
+Console.WriteLine("Введите количество элементов массива:");
+int size = Convert.ToInt32(Console.ReadLine());
+string[] firstArray = new string[size];
+Console.WriteLine("Введите элементы массива:");
+for (int i = 0; i < size; i++)
+{
+    Console.Write($"[{i}]: ");
+    firstArray[i] = Console.ReadLine();
+}
+string[] lastArray = new string[size];
 int k = 0;
 Console.WriteLine("Имеющийся массив:");
 PrintArray(firstArray);
-for (int i = 0; i < firstArray.Length; i++)
+for (int i = 0; i < size; i++)
 {
     if (firstArray[i].Length <= 3)
     {
@@ -24,6 +32,6 @@ for (int i = 0; i < firstArray.Length; i++)
         k++;
     }
 }
-Array.Resize(ref lastArray, firstArray.Length - k + 1);
+Array.Resize(ref lastArray, k);
 Console.WriteLine("Полученный массив:");
 PrintArray(lastArray);
